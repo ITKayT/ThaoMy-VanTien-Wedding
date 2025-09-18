@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Thiệp Cưới Thảo My & Văn Tiên</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap&subset=vietnamese" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Roboto', sans-serif; background: linear-gradient(135deg, #ffd1dc, #ffb6c1, #ffc0cb); scroll-behavior: smooth; }
+
+    /* Hero */
+    header {
+      height: 100vh;
+      background: url("/png_chi/z7023758987471_b3d15e1447e50efa052ea4d6565d01c9.jpg") no-repeat center/cover;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      color: #fff; text-align: center;
+      position: relative;
+    }
+    header::after {
+      content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,182,193,0.3);
+    }
+    header h1, header h2, header p {
+      position: relative; z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    header h1 {
+      font-family: 'Great Vibes', cursive; font-size: 64px; margin-bottom: 10px;
+      color: #fff;
+    }
+    header h2 { font-size: 28px; margin-bottom: 20px; color: #fff; }
+    header p { font-size: 20px; color: #fff; }
+
+    .btn-down {
+      margin-top: 40px; padding: 12px 24px; font-size: 18px;
+      border: none; border-radius: 30px; background: #fff; color: #d63384;
+      cursor: pointer; position: relative; z-index: 1;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    .btn-down:hover {
+      background: #d63384;
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 80px 20px; text-align: center;
+      background: rgba(255,255,255,0.9);
+      margin: 20px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 40px; color: #d63384; margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    p { font-size: 18px; line-height: 1.6; color: #555; }
+
+    /* Countdown */
+    #countdown {
+      font-size: 22px; margin-top: 20px;
+      display: inline-block; background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
+      color: #d63384;
+      padding: 20px 30px; border-radius: 15px;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(214,51,132,0.3);
+    }
+
+    /* Gallery */
+    .gallery {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px; margin-top: 30px;
+    }
+    .gallery img {
+      width: 100%; height: 250px; object-fit: cover;
+      border-radius: 15px; transition: transform 0.3s;
+      opacity: 0; transform: translateY(50px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .gallery img.show { 
+      opacity: 1; transform: translateY(0); 
+      transition: all 1s ease; 
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Map */
+    iframe { 
+      width: 100%; height: 400px; border: none; border-radius: 15px; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      background: linear-gradient(135deg, #d63384, #e91e63);
+      color: white; padding: 30px; text-align: center;
+      font-family: 'Great Vibes', cursive; font-size: 22px;
+      margin-top: 40px;
+    }
+
+    /* Location info */
+    .location-info {
+      background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
+      color: #d63384;
+      padding: 15px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* Form wishes */
+    #wishForm input, #wishForm textarea, #wishForm select {
+      padding:10px; width:80%; margin:8px 0; border:1px solid #ccc; border-radius:5px;
+    }
+    #wishForm button {
+      padding:10px 20px; background:#d63384; color:white; border:none; border-radius:5px; cursor:pointer;
+    }
+    #wishForm button:hover {
+      background:#a81f60;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header>
+    <h1>Thảo My 💖 Văn Tiên</h1>
+    <h2>Trân trọng kính mời bạn đến dự lễ vu quy</h2>
+    <p>Ngày 26/12/2025 - 16:00</p>
+    <a href="#invitation"><button class="btn-down">Xem chi tiết</button></a>
+  </header>
+
+  <!-- Lời mời -->
+  <section id="invitation">
+    <h3>Lời mời</h3>
+    <p>Trong niềm hạnh phúc lớn lao, chúng tôi trân trọng kính mời bạn đến dự lễ cưới của chúng tôi. Sự hiện diện của bạn sẽ làm cho ngày vui của chúng tôi thêm trọn vẹn và ý nghĩa.</p>
+  </section>
+
+  <!-- Đếm ngược -->
+  <section id="count">
+    <h3>Đếm ngược</h3>
+    <p>Chỉ còn:</p>
+    <div id="countdown">Đang tính...</div>
+  </section>
+
+  <!-- Album ảnh -->
+  <section id="album">
+    <h3>Album ảnh cưới</h3>
+    <p>Những khoảnh khắc đẹp nhất của chúng tôi</p>
+    <div class="gallery">
+      <img src="/png_chi/z7023756331993_0a6f25944181010052040ca9144f6e80.jpg" alt="Ảnh cưới 1">
+      <img src="/png_chi/z7023756473883_56ed1cdc1698748c6b7e3e84087c09e9.jpg" alt="Ảnh cưới 2">
+      <img src="/png_chi/z7023759969759_89406a92e050c4507638ffdd9439b32b.jpg" alt="Ảnh cưới 3">
+      <img src="/png_chi/z7023761779029_8e57908c106fe358ebeda62986376398.jpg" alt="Ảnh cưới 4">
+      <img src="/png_chi/z7023764064268_aecbb582362438be1b35cf0392479a95.jpg" alt="Ảnh cưới 5">
+      <img src="/png_chi/z7023992276876_0d65c971ce7ad73b163f005e3ed95f4e.jpg" alt="Ảnh cưới 6">
+      <img src="/png_chi/z7023992311084_cb01d3be8b96b96a04b656b51dd2201a.jpg" alt="Ảnh cưới 7">
+      <img src="/png_chi/z7023992276876_0d65c971ce7ad73b163f005e3ed95f4e.jpg" alt="Ảnh cưới 8">
+      <img src="/png_chi/z7023992277836_97e7b67120da57f49fc9735ad015d01d.jpg" alt="Ảnh cưới 9">
+      <img src="/png_chi/z7023763790541_e33ee33f5589bebe5f66e3c3073ebec3.jpg" alt="Ảnh cưới 10">
+    </div>
+  </section>
+
+  <!-- Bản đồ -->
+  <section id="map">
+    <h3>Địa điểm tổ chức</h3>
+    <div class="location-info">
+      📍 ASIA PLACE - HUẾ<br>
+      🕓 16:00 - Ngày 26/12/2025
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.705254429695!2d107.57996777515502!3d16.033972984631733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a5c6b034e3b5%3A0xc6ed94a2a2ebc22e!2zTmjDoCBow6BuZyBIb8OgbmcgR2lhLCBIdeG6rXk!5e0!3m2!1svi!2s!4v1726636728354" allowfullscreen></iframe>
+  </section>
+
+  <!-- Gửi lời chúc -->
+  <section id="wishes">
+    <h3>Gửi lời chúc đến cô dâu & chú rể 💌</h3>
+    <p>Hãy xác nhận sự có mặt và gửi lời chúc đến đôi uyên ương:</p>
+    <form id="wishForm">
+      <input type="text" id="name" placeholder="Tên của bạn" required><br>
+      <textarea id="message" placeholder="Lời chúc của bạn" required></textarea><br>
+      <select id="attend" required>
+        <option value="">Bạn sẽ đến chứ?</option>
+        <option value="Có">Có</option>
+        <option value="Không">Không</option>
+      </select><br>
+      <select id="guests" required>
+        <option value="">Bạn tham dự cùng ai?</option>
+        <option value="Một mình">Một mình</option>
+        <option value="Gia đình">Gia đình</option>
+        <option value="Bạn bè">Bạn bè</option>
+      </select><br>
+      <select id="relation" required>
+        <option value="">Bạn là khách mời của ai?</option>
+        <option value="Nhà trai">Nhà trai</option>
+        <option value="Nhà gái">Nhà gái</option>
+      </select><br>
+      <button type="submit">Gửi lời nhắn</button>
+    </form>
+    <p id="response" style="margin-top:10px; color:green; font-weight:bold;"></p>
+  </section>
+
+  <!-- Nhạc nền ẩn -->
+  <audio id="bgMusic" autoplay loop hidden>
+    <source src="mp3/Forever and Ever and Always (The Softer Version).mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Footer -->
+  <footer>
+    <p>Rất hân hạnh được đón tiếp quý khách! 💐</p>
+    <p style="font-size: 16px; font-family: 'Roboto', sans-serif; margin-top: 10px;">
+      Cảm ơn bạn đã chia sẻ niềm vui cùng chúng tôi
+    </p>
+  </footer>
+
+  <script>
+  // Countdown
+  const targetDate = new Date("Dec 26, 2025 16:00:00").getTime();
+  const countdown = document.getElementById("countdown");
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+    if (distance < 0) { 
+      countdown.innerHTML = "Ngày vui đã đến! 🎉"; 
+      return; 
+    }
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
+    countdown.innerHTML = `${d} ngày ${h} giờ ${m} phút ${s} giây`;
+  }, 1000);
+
+  // Gallery animation
+  const imgs = document.querySelectorAll('.gallery img');
+  const reveal = () => {
+    imgs.forEach(img => {
+      const rect = img.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 50) img.classList.add('show');
+    });
+  };
+  window.addEventListener('scroll', reveal);
+  reveal();
+
+  // Nhạc autoplay với fallback
+  const bgMusic = document.getElementById("bgMusic");
+  window.addEventListener("load", () => {
+    bgMusic.play().catch(() => {
+      console.log("Autoplay bị chặn, chờ click...");
+      document.addEventListener("click", () => bgMusic.play(), { once: true });
+    });
+  });
+
+  // Form gửi lời chúc
+  document.getElementById("wishForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    fetch("https://script.google.com/macros/s/AKfycbyXIKd01Vay6WQZKDtMnUxWuB3BhikvVl2KvUTM7JCQmdkCFrgcEyt6bJ5ops5Jmupv/exec", {
+      method: "POST",
+      mode: "no-cors", // 👈 fix CORS
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: document.getElementById("name").value,
+        message: document.getElementById("message").value,
+        attend: document.getElementById("attend").value,
+        guests: document.getElementById("guests").value,
+        relation: document.getElementById("relation").value
+      })
+    })
+    .then(() => {
+      document.getElementById("response").innerText = "🎉 Cảm ơn bạn đã gửi lời chúc!";
+      document.getElementById("wishForm").reset();
+    })
+    .catch(err => {
+      console.error("Fetch error:", err);
+      document.getElementById("response").innerText = "❌ Gửi thất bại, thử lại!";
+    });
+  });
+</script>
+</body>
+</html>
