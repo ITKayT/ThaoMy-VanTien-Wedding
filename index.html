@@ -65,12 +65,98 @@
 
     /* Countdown */
     #countdown {
-      font-size: 22px; margin-top: 20px;
-      display: inline-block; background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
+      font-size: 22px;
+      display: inline-block;
+      background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
       color: #d63384;
       padding: 20px 30px; border-radius: 15px;
       font-weight: bold;
       box-shadow: 0 4px 15px rgba(214,51,132,0.3);
+      margin-top: 15px;
+    }
+    .count-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%; /* căn giữa theo chiều dọc */
+    }
+
+    /* Countdown + Calendar layout */
+    #count-calendar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      align-items: stretch;
+      text-align: center;
+    }
+    #count-calendar > div {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Calendar */
+    #calendar .calendar {
+      background: #f9f9f9;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      font-family: 'Roboto', sans-serif;
+    }
+    .calendar .month {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+    .calendar .weekdays, .calendar .days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .calendar .weekdays div {
+      font-weight: bold;
+      color: #555;
+    }
+    .calendar .days div {
+      padding: 10px;
+      border-radius: 50%;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .calendar .days div:hover {
+      background: #ffe6f0;
+      cursor: pointer;
+    }
+    .calendar .highlight {
+      position: relative;
+      background: #d63384;
+      color: white;
+      font-weight: bold;
+    }
+    .calendar .highlight::after {
+      content: "❤";
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-size: 18px;
+      color: #e91e63;
+    }
+    .calendar .invite-text {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #444;
+    }
+    .calendar .names {
+      margin-top: 10px;
+      font-family: 'Great Vibes', cursive;
+      font-size: 28px;
+      color: #d63384;
     }
 
     /* Gallery */
@@ -99,8 +185,8 @@
     }
 
     footer {
-      background: linear-gradient(135deg, #d63384, #e91e63);
-      color: white; padding: 30px; text-align: center;
+      background: #ffb6c1;
+      color: #d63384; padding: 30px; text-align: center;
       font-family: 'Great Vibes', cursive; font-size: 22px;
       margin-top: 40px;
     }
@@ -117,9 +203,24 @@
     }
 
     /* Form wishes */
-    #wishForm input, #wishForm textarea, #wishForm select {
-      padding:10px; width:80%; margin:8px 0; border:1px solid #ccc; border-radius:5px;
+    #wishForm input, #wishForm select {
+      padding:10px; 
+      width:80%; 
+      margin:8px 0; 
+      border:1px solid #ccc; 
+      border-radius:5px;
     }
+
+    #wishForm textarea {
+      padding:10px; 
+      width:80%;              /* ✅ giữ cùng chiều rộng với input/select */
+      margin:8px 0; 
+      border:1px solid #ccc; 
+      border-radius:5px; 
+      resize: none;           /* ✅ không cho kéo dãn */
+      min-height: 200px;      /* ✅ cao hơn */
+    }
+
     #wishForm button {
       padding:10px 20px; background:#d63384; color:white; border:none; border-radius:5px; cursor:pointer;
     }
@@ -144,11 +245,28 @@
     <p>Trong niềm hạnh phúc lớn lao, chúng tôi trân trọng kính mời bạn đến dự lễ cưới của chúng tôi. Sự hiện diện của bạn sẽ làm cho ngày vui của chúng tôi thêm trọn vẹn và ý nghĩa.</p>
   </section>
 
-  <!-- Đếm ngược -->
-  <section id="count">
-    <h3>Đếm ngược</h3>
-    <p>Chỉ còn:</p>
-    <div id="countdown">Đang tính...</div>
+  <!-- Đếm ngược + Lịch -->
+  <section id="count-calendar">
+    <!-- Đếm ngược -->
+    <div class="count-box">
+      <h3>Đếm ngược</h3>
+      <p>Chỉ còn:</p>
+      <div id="countdown">Đang tính...</div>
+    </div>
+
+    <!-- 📅 Lịch cưới -->
+    <div id="calendar">
+      <h3>Lịch cưới</h3>
+      <div class="calendar">
+        <div class="month" id="cal-month">Tháng</div>
+        <div class="weekdays">
+          <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
+        </div>
+        <div class="days" id="cal-days"></div>
+        <p class="invite-text">Thân mời tới dự lễ cưới thân mật của chúng tôi</p>
+        <h2 class="names">Thảo My 💖 Văn Tiên</h2>
+      </div>
+    </div>
   </section>
 
   <!-- Album ảnh -->
@@ -176,15 +294,7 @@
       📍 ASIA PLACE - HUẾ<br>
       🕓 16:00 - Ngày 26/12/2025
     </div>
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.129378396628!2d107.59185687478087!3d16.468985284269873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a13cd76d33e9%3A0x743244f17ad46245!2zVHJ1bmcgVMOibSBT4buxIEtp4buHbiBBc2lhIFBhbGFjZQ!5e0!3m2!1svi!2s!4v1758178065332!5m2!1svi!2s" 
-        width="600" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.129378396628!2d107.59185687478087!3d16.468985284269873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3141a13cd76d33e9%3A0x743244f17ad46245!2zVHJ1bmcgVMOibSBT4buxIEtp4buHbiBBc2lhIFBhbGFjZQ!5e0!3m2!1svi!2s!4v1758178065332!5m2!1svi!2s" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </section>
 
   <!-- Gửi lời chúc -->
@@ -246,6 +356,31 @@
     countdown.innerHTML = `${d} ngày ${h} giờ ${m} phút ${s} giây`;
   }, 1000);
 
+  // Lịch cưới
+  const dateObj = new Date(targetDate);
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  document.getElementById("cal-month").innerText =
+    monthNames[dateObj.getMonth()] + " " + dateObj.getFullYear();
+
+  const firstDay = new Date(dateObj.getFullYear(), dateObj.getMonth(), 1).getDay();
+  const lastDate = new Date(dateObj.getFullYear(), dateObj.getMonth() + 1, 0).getDate();
+  const daysContainer = document.getElementById("cal-days");
+
+  let startDay = firstDay === 0 ? 7 : firstDay;
+  for (let i = 1; i < startDay; i++) {
+    daysContainer.innerHTML += `<div></div>`;
+  }
+  for (let d = 1; d <= lastDate; d++) {
+    if (d === dateObj.getDate()) {
+      daysContainer.innerHTML += `<div class="highlight">${d}</div>`;
+    } else {
+      daysContainer.innerHTML += `<div>${d}</div>`;
+    }
+  }
+
   // Gallery animation
   const imgs = document.querySelectorAll('.gallery img');
   const reveal = () => {
@@ -271,7 +406,7 @@
     e.preventDefault();
     fetch("https://script.google.com/macros/s/AKfycbyXIKd01Vay6WQZKDtMnUxWuB3BhikvVl2KvUTM7JCQmdkCFrgcEyt6bJ5ops5Jmupv/exec", {
       method: "POST",
-      mode: "no-cors", // 👈 fix CORS
+      mode: "no-cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: document.getElementById("name").value,
@@ -290,6 +425,6 @@
       document.getElementById("response").innerText = "❌ Gửi thất bại, thử lại!";
     });
   });
-</script>
+  </script>
 </body>
 </html>
