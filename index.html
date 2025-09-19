@@ -159,11 +159,21 @@
       color: #d63384;
     }
 
-    /* Gallery */
+    /* Album ảnh */
     .gallery {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px; margin-top: 30px;
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px; 
+      margin-top: 30px;
     }
+
+    /* Trên điện thoại (màn hình nhỏ hơn 768px) => luôn 2 ảnh/dòng */
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .gallery img {
       width: 100%; height: 250px; object-fit: cover;
       border-radius: 15px; transition: transform 0.3s;
@@ -227,13 +237,51 @@
     #wishForm button:hover {
       background:#a81f60;
     }
+
+    /* Tên cô dâu chú rể */
+    .couple-names {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;              /* khoảng cách giữa các phần tử */
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .couple-names .heart {
+      font-size: 1.2em;
+      margin: 0 5px;
+    }
+
+    /* 📱 Khi màn hình nhỏ hơn 600px (mobile) */
+    @media (max-width: 600px) {
+      .couple-names {
+        flex-direction: column;  /* đổi thành dọc */
+        gap: 5px;
+      }
+    }
+
+    .wish-title {
+      font-size: 28px; /* nhỏ hơn mặc định 40px */
+      line-height: 1.4;
+    }
+
+    @media (max-width: 600px) {
+      .wish-title {
+        font-size: 22px; /* trên điện thoại sẽ nhỏ hơn nữa */
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Hero -->
   <header>
-    <h1>Thảo My 💖 Văn Tiên</h1>
+    <h1 class="couple-names">
+      <span class="bride">Thảo My</span>
+      <span class="heart">💖</span>
+      <span class="groom">Văn Tiên</span>
+    </h1>
     <h2>Trân trọng kính mời bạn đến dự lễ vu quy</h2>
     <p>Ngày 26/12/2025 - 16:00</p>
     <a href="#invitation"><button class="btn-down">Xem chi tiết</button></a>
@@ -299,7 +347,7 @@
 
   <!-- Gửi lời chúc -->
   <section id="wishes">
-    <h3>Gửi lời chúc đến cô dâu & chú rể 💌</h3>
+    <h3 class="wish-title">Gửi lời chúc đến cô dâu & chú rể 💌</h3>
     <p>Hãy xác nhận sự có mặt và gửi lời chúc đến đôi uyên ương:</p>
     <form id="wishForm">
       <input type="text" id="name" placeholder="Tên của bạn" required><br>
