@@ -180,6 +180,28 @@
       opacity: 0; transform: translateY(50px);
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
+    
+    /* Điều chỉnh vị trí hiển thị cho từng ảnh */
+    /* object-position: [left/center/right] [top/center/bottom] */
+    /* hoặc dùng phần trăm: 30% 50% (ngang, dọc) */
+    
+    .img-1 { object-position: center center; } /* mặc định */
+    .img-2 { object-position: center center; }
+    .img-3 { object-position: center center; }
+    .img-4 { object-position: 25% center; }
+    .img-5 { object-position: center center; }
+    .img-6 { object-position: center center; }
+    .img-7 { object-position: center center; }
+    .img-8 { object-position: center center; }
+    .img-9 { object-position: center center; }
+    .img-10 { object-position: center center; }
+    .img-11 { object-position: center center; }
+    .img-12 { object-position: center center; }
+    
+    /* Ví dụ: nếu người đứng lệch trái, dùng: object-position: 30% center; */
+    /* Nếu người đứng lệch phải, dùng: object-position: 70% center; */
+    /* Nếu người ở phía trên, dùng: object-position: center 30%; */
+    
     .gallery img.show { 
       opacity: 1; transform: translateY(0); 
       transition: all 1s ease; 
@@ -323,18 +345,18 @@
     <h3>Album ảnh cưới</h3>
     <p>Những khoảnh khắc đẹp nhất của chúng tôi</p>
     <div class="gallery">
-      <img src="./png_chi/a20.jpg" alt="Ảnh cưới 3">
-      <img src="./png_chi/a22.jpg" alt="Ảnh cưới 1">
-      <img src="./png_chi/a18.jpg" alt="Ảnh cưới 4">
-      <img src="./png_chi/a24.jpg" alt="Ảnh cưới 9">
-      <img src="./png_chi/a10.jpg" alt="Ảnh cưới 10">
-      <img src="./png_chi/a17.jpg" alt="Ảnh cưới 14">
-      <img src="./png_chi/a12.jpg" alt="Ảnh cưới 12">
-      <img src="./png_chi/a11.jpg" alt="Ảnh cưới 11">
-      <img src="./png_chi/a13.jpg" alt="Ảnh cưới 13">
-      <img src="./png_chi/a23.jpg" alt="Ảnh cưới 15">
-      <img src="./png_chi/a25.jpg" alt="Ảnh cưới 13">
-      <img src="./png_chi/a26.jpg" alt="Ảnh cưới 15">
+      <img src="./png_chi/a20.jpg" alt="Ảnh cưới 3" class="img-1">
+      <img src="./png_chi/a22.jpg" alt="Ảnh cưới 1" class="img-2">
+      <img src="./png_chi/a18.jpg" alt="Ảnh cưới 4" class="img-3">
+      <img src="./png_chi/a24.jpg" alt="Ảnh cưới 9" class="img-4">
+      <img src="./png_chi/a10.jpg" alt="Ảnh cưới 10" class="img-5">
+      <img src="./png_chi/a17.jpg" alt="Ảnh cưới 14" class="img-6">
+      <img src="./png_chi/a12.jpg" alt="Ảnh cưới 12" class="img-7">
+      <img src="./png_chi/a11.jpg" alt="Ảnh cưới 11" class="img-8">
+      <img src="./png_chi/a13.jpg" alt="Ảnh cưới 13" class="img-9">
+      <img src="./png_chi/a23.jpg" alt="Ảnh cưới 15" class="img-10">
+      <img src="./png_chi/a25.jpg" alt="Ảnh cưới 13" class="img-11">
+      <img src="./png_chi/a26.jpg" alt="Ảnh cưới 15" class="img-12">
     </div>
   </section>
 
