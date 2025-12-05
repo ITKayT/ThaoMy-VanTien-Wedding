@@ -65,21 +65,59 @@
 
     /* Countdown */
     #countdown {
-      font-size: 22px;
-      display: inline-block;
+      font-size: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
       background: linear-gradient(135deg, #ffd1dc, #ffb6c1);
       color: #d63384;
-      padding: 20px 30px; border-radius: 15px;
+      padding: 20px 30px; 
+      border-radius: 15px;
       font-weight: bold;
       box-shadow: 0 4px 15px rgba(214,51,132,0.3);
       margin-top: 15px;
+      max-width: 90%;
     }
-    .count-box {
+
+    #countdown .time-unit {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100%; /* căn giữa theo chiều dọc */
+      min-width: 60px;
+    }
+
+    #countdown .time-value {
+      font-size: 32px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    #countdown .time-label {
+      font-size: 12px;
+      margin-top: 5px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      #countdown {
+        padding: 15px 20px;
+        gap: 10px;
+        font-size: 16px;
+      }
+      
+      #countdown .time-unit {
+        min-width: 50px;
+      }
+
+      #countdown .time-value {
+        font-size: 24px;
+      }
+
+      #countdown .time-label {
+        font-size: 11px;
+      }
     }
 
     /* Countdown + Calendar layout */
@@ -465,14 +503,13 @@
 
     <!-- 📅 Lịch cưới -->
     <div id="calendar">
-      <h3>Lịch cưới</h3>
       <div class="calendar">
         <div class="month" id="cal-month">Tháng</div>
         <div class="weekdays">
           <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div><div>Sun</div>
         </div>
         <div class="days" id="cal-days"></div>
-        <p class="invite-text">Thân mời tới dự lễ cưới thân mật của chúng tôi</p>
+        <p class="invite-text">Thân mời tới dự Lễ Vu Quy của chúng tôi</p>
         <h2 class="names">Thảo My 💖 Văn Tiên</h2>
       </div>
     </div>
@@ -564,7 +601,25 @@
     const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     const s = Math.floor((distance % (1000 * 60)) / 1000);
-    countdown.innerHTML = `${d} ngày ${h} giờ ${m} phút ${s} giây`;
+    
+    countdown.innerHTML = `
+      <div class="time-unit">
+        <div class="time-value">${d}</div>
+        <div class="time-label">Ngày</div>
+      </div>
+      <div class="time-unit">
+        <div class="time-value">${h}</div>
+        <div class="time-label">Giờ</div>
+      </div>
+      <div class="time-unit">
+        <div class="time-value">${m}</div>
+        <div class="time-label">Phút</div>
+      </div>
+      <div class="time-unit">
+        <div class="time-value">${s}</div>
+        <div class="time-label">Giây</div>
+      </div>
+    `;
   }, 1000);
 
   // Lịch cưới
