@@ -293,6 +293,129 @@
         font-size: 22px; /* trên điện thoại sẽ nhỏ hơn nữa */
       }
     }
+
+    /* Thiệp cưới */
+    #invitation-card {
+      background: linear-gradient(135deg, #f8f8f8, #ffffff);
+      border: 2px solid #a8a8a8;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      border-radius: 10px;
+    }
+
+    .card-header {
+      font-size: 13px;
+      color: #7a7a7a;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .card-title {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 25px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .card-date-line {
+      padding: 20px 0;
+      margin: 25px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      font-size: 14px;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 400;
+    }
+
+    .card-date-line .month,
+    .card-date-line .year {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      padding: 8px 0;
+    }
+
+    .card-date-line .day {
+      font-size: 80px;
+      font-weight: 300;
+      line-height: 1;
+      color: #6b7280;
+    }
+
+    .card-lunar {
+      font-size: 13px;
+      color: #888;
+      margin: 20px 0;
+      font-style: italic;
+    }
+
+    .card-rings {
+      margin: 25px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-rings img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      opacity: 0.8;
+    }
+
+    .card-venue {
+      font-size: 16px;
+      color: #2c3e50;
+      margin: 20px 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    .card-address {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+      margin: 15px 0;
+    }
+
+    .card-note {
+      font-size: 13px;
+      color: #6b7280;
+      margin-top: 25px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 600px) {
+      #invitation-card {
+        padding: 30px 20px;
+        max-width: 350px;
+      }
+      .card-date-line {
+        font-size: 12px;
+        gap: 12px;
+        padding: 15px 0;
+      }
+      .card-date-line .day { 
+        font-size: 60px; 
+      }
+      .card-rings img {
+        width: 60px;
+        height: 60px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -314,6 +437,29 @@
   <section id="invitation">
     <h3>Lời mời</h3>
     <p>Trong niềm hạnh phúc lớn lao, chúng tôi trân trọng kính mời bạn đến dự lễ cưới của chúng tôi. Sự hiện diện của bạn sẽ làm cho ngày vui của chúng tôi thêm trọn vẹn và ý nghĩa.</p>
+  </section>
+
+  <!-- Thiệp cưới -->
+  <section>
+    <h3>Thiệp mời</h3>
+    <div id="invitation-card">
+      <p class="card-header">Lễ vu quy được tổ chức vào lúc 16 giờ 30 phút</p>
+      <h2 class="card-title">Thứ sáu</h2>
+      <div class="card-date-line">
+        <span class="month">THÁNG 12</span>
+        <span class="day">26</span>
+        <span class="year">NĂM 2025</span>
+      </div>
+      <p class="card-lunar">(Tức ngày 7 tháng 11 năm Ất Tỵ)</p>
+      <div class="card-rings">
+        <img src="https://www.vhv.rs/dpng/d/125-1257661_brand-symbol-logo-wedding-ring-clipart-transparent-hd.png" alt="Wedding Rings">
+      </div>
+      <p class="card-venue">TẠI ASIA PLACE - HUẾ</p>
+      <p class="card-address">
+        Địa chỉ: 32 Phạm Ngũ Lão, Phú Hội, Thành phố Huế<br>
+      </p>
+      <p class="card-note">📍 CHỈ ĐƯỜNG</p>
+    </div>
   </section>
 
   <!-- Đếm ngược + Lịch -->
